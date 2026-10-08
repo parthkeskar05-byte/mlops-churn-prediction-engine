@@ -1,0 +1,27 @@
+model:
+  n_estimators: 100
+  max_depth: 5
+  learning_rate: 0.1
+  random_state: 42
+  objective: "binary:logistic"
+  eval_metric: "logloss"
+
+data:
+  test_size: 0.2
+  random_state: 42
+  n_samples: 7043
+
+mlflow:
+  experiment_name: "churn-prediction"
+  tracking_uri: "mlruns"
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://localhost:8501"
+
+paths:
+  model_path: "models/xgboost_model.pkl"
+  data_path: "data/sample/telco_churn.csv"
